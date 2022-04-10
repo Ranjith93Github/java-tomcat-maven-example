@@ -1,0 +1,12 @@
+---
+ - hosts: all
+   become:
+   tasks:
+    - name: stop container
+      shell: docker stop demo
+	  - name: remove container
+	    shell: docker rm -f demo
+    - name: remove container
+      shell: docker rmi -f ranjithdocker93/demo:latest
+    - name: container
+	    shell: docker run -itd --name demo -p 8090:8080 ranjithdocker93/demo:latest
